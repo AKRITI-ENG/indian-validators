@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { isValidPhone, isValidPincode } = require('./index');
+const { isValidPhone, isValidPincode, isValidPAN } = require('./index');
 
 test('accepts valid phone numbers', () => {
   assert.equal(isValidPhone('9876543210'), true);
@@ -27,4 +27,18 @@ test('rejects invalid PIN codes', () => {
   assert.equal(isValidPincode('1100011'), false);
   assert.equal(isValidPincode('11A001'), false);
   assert.equal(isValidPincode(110001), false);
+});
+
+test('accepts valid PAN numbers', () => {
+  assert.equal(isValidPAN('ABCPE1234F'), true);
+  assert.equal(isValidPAN('abcpe1234f'), true);
+  assert.equal(isValidPAN(' ABCCE1234F '), true);
+});
+
+test('rejects invalid PAN numbers', () => {
+  assert.equal(isValidPAN('ABCXE1234F'), false); 
+  assert.equal(isValidPAN('ABCPE12345'), false); 
+  assert.equal(isValidPAN('ABCPE123F'), false);  
+  assert.equal(isValidPAN('1BCPE1234F'), false); 
+  assert.equal(isValidPAN(''), false);
 });

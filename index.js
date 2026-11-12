@@ -14,4 +14,12 @@ function isValidPincode(input) {
   return /^[1-9]\d{5}$/.test(cleaned);
 }
 
-module.exports = { isValidPhone, isValidPincode };
+function isValidPAN(input) {
+  if (typeof input !== 'string') return false;
+
+  const cleaned = input.trim().toUpperCase();
+
+  return /^[A-Z]{3}[PCHFATBLJG][A-Z]\d{4}[A-Z]$/.test(cleaned);
+}
+
+module.exports = { isValidPhone, isValidPincode, isValidPAN };
