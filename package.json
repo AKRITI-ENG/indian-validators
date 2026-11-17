@@ -1,5 +1,5 @@
 {
-  "name": "indian-validators",
+  "name": "@akriti-eng/indian-validators",
   "version": "1.0.0",
   "description": "Validate Indian phone numbers, PIN codes, PAN and IFSC codes",
   "main": "index.js",

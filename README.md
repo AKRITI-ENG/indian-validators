@@ -5,7 +5,7 @@ Small, dependency-free functions to validate Indian phone numbers, PIN codes, PA
 ## Install
 
 ```bash
-npm install indian-validators
+npm install @akriti-eng/indian-validators
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ const {
   isValidPincode,
   isValidPAN,
   isValidIFSC,
-} = require('indian-validators');
+} = require('@akriti-eng/indian-validators');
 
 isValidPhone('+91 98765 43210'); // true
 isValidPincode('110001');        // true
