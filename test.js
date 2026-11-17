@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { isValidPhone, isValidPincode, isValidPAN } = require('./index');
+const { isValidPhone, isValidPincode, isValidPAN, isValidIFSC } = require('./index');
 
 test('accepts valid phone numbers', () => {
   assert.equal(isValidPhone('9876543210'), true);
@@ -41,4 +41,18 @@ test('rejects invalid PAN numbers', () => {
   assert.equal(isValidPAN('ABCPE123F'), false);  
   assert.equal(isValidPAN('1BCPE1234F'), false); 
   assert.equal(isValidPAN(''), false);
+});
+
+test('accepts valid IFSC codes', () => {
+  assert.equal(isValidIFSC('SBIN0001234'), true);
+  assert.equal(isValidIFSC('hdfc0abc123'), true);
+  assert.equal(isValidIFSC(' ICIC0000001 '), true);
+});
+
+test('rejects invalid IFSC codes', () => {
+  assert.equal(isValidIFSC('SBIN1001234'), false); // 5th character is not 0
+  assert.equal(isValidIFSC('SBI00001234'), false); // only 3 letters at the start
+  assert.equal(isValidIFSC('SBIN000123'), false);  // too short
+  assert.equal(isValidIFSC('SBIN00012345'), false); // too long
+  assert.equal(isValidIFSC(''), false);
 });
