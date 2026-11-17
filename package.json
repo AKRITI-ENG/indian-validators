@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "Validate Indian phone numbers, PIN codes, PAN and IFSC codes",
   "main": "index.js",
+  "files": ["index.js"],
   "scripts": {
     "test": "node --test"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "author": "Akriti Kumari",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKRITI-ENG/indian-validators.git"
+  },
+  "homepage": "https://github.com/AKRITI-ENG/indian-validators#readme",
+  "keywords": ["india", "validation", "phone", "pincode", "pan", "ifsc"]
 }
